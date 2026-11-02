@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TimeSync — 讓跨時區合作，更同步</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <a class="brand" href="#"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>time<span class="brand-light">sync</span><small>GLOBAL PLANNING</small></span></a>
+  <div class="side-label">WORKSPACE</div>
+  <nav><a class="nav-item active" href="#planner"><span class="nav-icon">◫</span> 時區協調 <span class="nav-arrow">↗</span></a><a class="nav-item" href="#overlap"><span class="nav-icon">◷</span> 最佳會議時間</a></nav>
+  <div class="side-bottom"><div class="side-globe">✳</div><div class="side-bottom-title">跨越距離，<br>保持同步。</div><p>為全球團隊找到<br>剛剛好的時間。</p><div class="side-status"><span></span> READY TO CONNECT</div></div>
+  <div class="side-footer"><div class="avatar">TS</div><div><strong>TimeSync</strong><small>你的全球時間助手</small></div><span class="dots">···</span></div>
+</aside>
+<main id="planner">
+  <header class="topbar"><div class="breadcrumb">工作空間 <span>/</span> <strong>時區協調</strong></div><div class="top-right"><span class="live-dot"></span><span>全球時間同步中</span><span class="divider"></span><button class="icon-button" id="helpBtn" aria-label="使用說明">?</button><div class="top-avatar">T</div></div></header>
+  <div class="content">
+    <div class="eyebrow"><span></span> TIME ZONE PLANNER <b> / </b> 01</div>
+    <section class="hero"><div><h1>讓每一次相聚，<br><span>都在對的時間。</span></h1><p>跨越時區的距離，找到團隊最合適的相聚時刻。</p></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="art-core">✳</div><span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span><span class="art-label label-one">TPE <b>+08</b></span><span class="art-label label-two">NYC <b>−05</b></span></div></section>
+    <div class="section-heading"><div><div class="section-kicker">YOUR TIME ZONES <span>✳</span></div><h2>團隊時區 <span id="zoneCount">04</span></h2><p>拖曳時間滑桿，查看各地對應時間。</p></div><button class="outline-btn" id="addBtn"><span>＋</span> 新增城市</button></div>
+    <section class="planner-card"><div class="card-toolbar"><div class="date-controls"><button class="square-btn" id="prevDay" aria-label="前一天">‹</button><label class="date-display"><span>▦</span><input type="date" id="dateInput"><strong id="dateLabel"></strong><span class="chevron">⌄</span></label><button class="square-btn" id="nextDay" aria-label="後一天">›</button><button class="today-btn" id="todayBtn">今天</button></div><div class="time-legend"><span><i class="work-dot"></i> 工作時間</span><span><i class="off-dot"></i> 非工作時間</span><span><i class="selected-dot"></i> 選擇時間</span></div></div>
+      <div class="timeline-wrap"><div class="timeline-top"><div class="zone-head">城市 / 時區</div><div class="hours" id="hours"></div></div><div id="zoneRows"></div><div class="timeline-bottom"><div>以台北時間為基準 <span>UTC+08:00</span></div><div>拖曳或點擊時間軸來調整 <span>↔</span></div></div></div>
+    </section>
+    <section class="bottom-grid" id="overlap"><div class="meeting-card"><div class="card-heading"><div><div class="section-kicker">FIND THE SWEET SPOT</div><h3>找到最佳會議時間 <span>✳</span></h3><p>根據團隊的工作時間，找到最適合的交集。</p></div><div class="sparkle">✳</div></div><div class="recommendation"><div class="recommend-icon">✦</div><div class="recommend-copy"><small>團隊時間交集</small><strong id="recommendTime">分析中</strong><span id="recommendDetail">正在尋找合適的時間</span></div><button id="applyRecommendation">套用時間 <span>↗</span></button></div></div>
+    <div class="selected-card"><div class="selected-top"><div><div class="section-kicker">YOUR SELECTED TIME</div><h3>目前選擇的時間</h3></div><span class="selected-icon">↗</span></div><div class="selected-time" id="selectedTime">09:00 <span>AM</span></div><div class="selected-date" id="selectedDate"></div><div class="selected-actions"><button class="copy-btn" id="copyBtn"><span>▣</span> 複製會議時間 <span>↗</span></button><button class="calendar-btn" id="calendarBtn"><span>▦</span> 建立行事曆 <span>↗</span></button></div></div></section>
+    <footer><span>© 2026 TIMESYNC. MADE FOR TEAMS EVERYWHERE.</span><span>讓世界，在同一個時間相遇。 <b>✳</b></span></footer>
+  </div>
+</main></div>
+<dialog id="cityDialog"><form method="dialog" class="dialog-card"><div class="dialog-head"><div><div class="section-kicker">ADD A LOCATION</div><h2>新增城市</h2></div><button class="close-btn" value="cancel" aria-label="關閉">×</button></div><p>選擇團隊所在的城市，加入時間軸。</p><label for="citySearch">搜尋國家或城市</label><input id="citySearch" type="search" placeholder="例如：日本、Tokyo、US" autocomplete="off"><label for="citySelect">城市 / 時區 <span id="cityResults"></span></label><select id="citySelect" size="8" aria-label="選擇城市或時區"></select><p class="city-empty" id="cityEmpty" hidden>找不到相符的國家或城市。</p><button class="dialog-submit" id="confirmAdd" value="default">新增城市 <span>＋</span></button></form></dialog>
+<dialog id="calendarDialog"><form id="calendarForm" class="dialog-card calendar-form"><div class="dialog-head"><div><div class="section-kicker">CREATE CALENDAR EVENT</div><h2>建立會議行事曆</h2></div><button type="button" class="close-btn" id="closeCalendar" aria-label="關閉">×</button></div><p>以目前選擇的時間建立會議，下載後可匯入你的行事曆。</p><div class="calendar-summary"><span>▦</span><div><small>會議開始時間 · 台北時間</small><strong id="calendarStart"></strong></div></div><label for="meetingTitle">會議名稱</label><input id="meetingTitle" type="text" placeholder="例如：全球團隊例會" required maxlength="200"><label for="meetingDuration">會議長度</label><select id="meetingDuration"><option value="30">30 分鐘</option><option value="60" selected>1 小時</option><option value="90">1 小時 30 分鐘</option><option value="120">2 小時</option></select><label for="meetingLocation">地點或會議連結 <span>選填</span></label><input id="meetingLocation" type="text" placeholder="例如：線上會議連結" maxlength="500"><label for="meetingNotes">備註 <span>選填</span></label><textarea id="meetingNotes" rows="3" placeholder="加入會議議程或其他資訊"></textarea><button class="dialog-submit" type="submit">下載行事曆檔案 (.ics) <span>↓</span></button><div class="calendar-hint">支援 Google、Apple 與 Outlook 行事曆</div></form></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script src="timezones.js"></script>
+<script src="app.js"></script>
+</body></html>
